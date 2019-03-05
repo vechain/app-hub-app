@@ -2,6 +2,7 @@ import 'spectre.css';
 import 'spectre.css/dist/spectre-icons.css';
 import Vue from 'vue';
 import App from './App.vue';
+import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 

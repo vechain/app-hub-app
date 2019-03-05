@@ -59,7 +59,7 @@ export default class App extends Vue {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: auto;
-    max-width: 1080px;
+    max-width: 1280px;
     padding-top: 1rem;
 }
 .apps-section {

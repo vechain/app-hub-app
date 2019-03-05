@@ -1,5 +1,5 @@
 <template>
-    <div class="app-card tile">
+    <a class="app-card tile" target="_blank" href="app.url">
         <div class="tile-icon" :style="{background: color}">
             <div>
                 <span>{{indexStr}}</span>
@@ -11,7 +11,7 @@
             </p>
             <p class="tile-subtitle">{{app.desc}}</p>
         </div>
-    </div>
+    </a>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
@@ -91,6 +91,11 @@ export default class AppCard extends Vue {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+}
+a.app-card,
+a.app-card:hover {
+    text-decoration: none;
+    color: #111;
 }
 </style>
 
