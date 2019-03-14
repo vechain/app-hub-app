@@ -1,9 +1,10 @@
 <template>
-    <a class="app-card tile" target="_blank" href="app.url">
-        <div class="tile-icon" :style="{background: color}">
-            <div>
+    <a class="app-card tile" target="_blank" :href="app.href">
+        <div class="tile-icon" :style="{background: !app.img && color}" :class="{'tile-icon-border': !app.img}">
+            <div v-if="!app.img">
                 <span>{{indexStr}}</span>
             </div>
+            <img v-if="app.img" width="100%" :src="app.img">
         </div>
         <div class="tile-content">
             <p class="tile-title bold">
@@ -17,9 +18,11 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 declare interface DApp {
+    id: string;
     name: string;
-    url: string;
+    href: string;
     desc: string;
+    tags: string[];
     img: string;
 }
 
@@ -28,9 +31,8 @@ export default class AppCard extends Vue {
     @Prop({})
     private app!: DApp;
 
-
     get indexStr(): string {
-        return this.app.name.substr(0, 1);
+        return this.app.name.substr(0, 1).toUpperCase();
     }
     get color(): string {
         const colors = [
@@ -55,19 +57,22 @@ export default class AppCard extends Vue {
 .app-card {
     border-radius: 3px;
     border: 1px solid #eee;
-    padding: 30px 20px;
+    padding: 20px;
     box-sizing: border-box;
+    max-width: 330px;
 }
 
 .app-card .tile-icon {
-    height: 4rem;
-    width: 4rem;
-    border: 2px solid #eee;
+    height: 60px;
+    width: 60px;
     margin-right: 0.5rem;
-    border-radius: 5px;
     background-color: white;
     display: flex;
     justify-content: center;
+}
+.tile-icon-border {
+    border: 2px solid #eee;
+    border-radius: 5px;
 }
 .app-card .tile-icon div {
     display: flex;
@@ -92,7 +97,11 @@ export default class AppCard extends Vue {
     text-overflow: ellipsis;
     white-space: normal;
 }
+a.app-card:focus {
+    box-shadow: none;
+}
 a.app-card,
+a:visited.app-card,
 a.app-card:hover {
     text-decoration: none;
     color: #111;
