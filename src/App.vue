@@ -17,7 +17,7 @@
                 </div>
             </section>
             <section class="navbar-section">
-                <a href="#" class="ml-2 btn btn-link">Submit App</a>
+                <a href="//github.com/libotony/app-hub" target="_blank" class="ml-2 btn btn-link">Submit App</a>
             </section>
         </header>
 
