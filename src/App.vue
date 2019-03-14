@@ -2,7 +2,8 @@
     <div id="app">
         <header class="navbar">
             <section class="navbar-section">
-                <a href="\" class="navbar-brand text-bold mr-2">App Hub</a>
+                <img src="./assets/logo.png" style="height: 40px;" class="mr-2" alt="Logo">
+                <a href="/" class="navbar-brand ml-2 text-bold mr-2">App Hub</a>
                 <div class="input-inline ml-2">
                     <div class="has-icon-left">
                         <input
@@ -16,8 +17,12 @@
                     </div>
                 </div>
             </section>
-            <section class="navbar-section">
-                <a href="//github.com/libotony/app-hub" target="_blank" class="ml-2 btn btn-link">Submit App</a>
+            <section class="navbar-section" style="max-width: 200px;">
+                <a
+                    href="//github.com/libotony/app-hub"
+                    target="_blank"
+                    class="ml-2 btn btn-link"
+                >Submit App</a>
             </section>
         </header>
 
@@ -40,8 +45,8 @@
                     Can not find any application match
                     <strong>{{keyword}}</strong>
                 </p>
-                <p class="empty-subtitle">Suggestion:</p>
-                <ul>
+                <ul style="width: 350px; margin: auto; text-align: left;">
+                    <p class="empty-subtitle">Suggestion:</p>
                     <li>Make sure that all words are spelled correctly.</li>
                     <li>Try different keywods.</li>
                 </ul>
@@ -67,9 +72,6 @@ export default class App extends Vue {
         };
     });
     public keyword = '';
-    // public created() {
-    //     this.apps = this.apps!
-    // }
 
     public get title() {
         return this.keyword ? `Results of '${this.keyword}'.` : 'Discover';
