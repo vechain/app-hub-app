@@ -1,10 +1,20 @@
 <template>
     <a class="app-card tile" target="_blank" :href="app.href">
-        <div class="tile-icon" :style="{background: !app.img && color}" :class="{'tile-icon-border': !app.img}">
-            <div v-if="!app.img">
+        <div
+            class="tile-icon"
+            :style="backGStyle"
+            :class="{'tile-icon-border': !loaded}"
+        >
+            <div v-show="!loaded">
                 <span>{{indexStr}}</span>
             </div>
-            <img v-if="app.img" width="100%" :src="app.img">
+            <img
+                v-show="loaded"
+                @load="onUpdateLoaded(true)"
+                @error="onUpdateLoaded(false)"
+                width="100%"
+                :src="app.img"
+            >
         </div>
         <div class="tile-content">
             <p class="tile-title bold">
@@ -30,10 +40,17 @@ declare interface DApp {
 export default class AppCard extends Vue {
     @Prop({})
     private app!: DApp;
-
+    private loaded = false;
     get indexStr(): string {
         return this.app.name.substr(0, 1).toUpperCase();
     }
+
+    get backGStyle() {
+        return this.loaded ? '' : {
+            background: this.color,
+        };
+    }
+
     get color(): string {
         const colors = [
             '#41ab5d',
@@ -50,6 +67,10 @@ export default class AppCard extends Vue {
         const code: number = this.app.name.substr(0, 1).charCodeAt(0);
         const index = code % this.app.name.length;
         return colors[index];
+    }
+
+    public onUpdateLoaded(val: boolean) {
+        this.loaded = val;
     }
 }
 </script>
