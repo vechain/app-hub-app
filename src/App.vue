@@ -111,10 +111,10 @@ export default class App extends Vue {
 #app > .navbar {
     padding-left: 40px;
     padding-right: 40px;
-    height: 60px;
 }
 #app > .navbar {
     background-color: #2f353b;
+    height: 60px;
 }
 #app > .navbar .form-input:focus,
 #app > .navbar .form-input {
