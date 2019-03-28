@@ -19,7 +19,7 @@
             </section>
             <section class="navbar-section" style="max-width: 200px;">
                 <a
-                    href="//github.com/libotony/app-hub"
+                    href="//github.com/vechain/app-hub"
                     target="_blank"
                     class="ml-2 btn btn-link"
                 >Submit App</a>
