@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  "node"
+script:
+  - npm run build
+  - cp dist/index.html dist/donate.html
+  - cp dist/index.html dist/generate.html
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: dist
+  github_token: $GH_TOKEN # Set in travis-ci.org dashboard
+  fqdn: bmac.vecha.in
+  on:
+    branch: master
