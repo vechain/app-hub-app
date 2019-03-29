@@ -19,7 +19,7 @@
             </section>
             <section class="navbar-section" style="max-width: 200px;">
                 <a
-                    href="//github.com/vechain/app-hub"
+                    href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form"
                     target="_blank"
                     class="ml-2 btn btn-link"
                 >Submit App</a>
