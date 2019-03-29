@@ -1,29 +1,13 @@
-# app-hub
+# VeChain App-Hub
 
-## Project setup
-```
-npm install
-```
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://apps.vechain.org/)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Discover awesome vechain apps.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Development
 
-### Run your tests
+``` bash
+npm install     #Install dependencies
+npm run serve   #Compiles and hot-reloads for development
+npm run build   #Compiles and minifies for production
 ```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
