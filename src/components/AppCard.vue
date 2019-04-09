@@ -1,10 +1,6 @@
 <template>
     <a class="app-card tile" target="_blank" :href="app.href">
-        <div
-            class="tile-icon"
-            :style="backGStyle"
-            :class="{'tile-icon-border': !loaded}"
-        >
+        <div class="tile-icon" :style="backGStyle" :class="{'tile-icon-border': !loaded}">
             <div v-show="!loaded">
                 <span>{{indexStr}}</span>
             </div>
@@ -18,7 +14,7 @@
         </div>
         <div class="tile-content">
             <p class="tile-title bold">
-                <strong>{{app.name}}</strong>
+                <strong :title="app.name">{{app.name}}</strong>
             </p>
             <p class="tile-subtitle">{{app.desc}}</p>
         </div>
@@ -81,6 +77,8 @@ export default class AppCard extends Vue {
     padding: 20px;
     box-sizing: border-box;
     max-width: 330px;
+    height: 134px;
+    align-items: center;
 }
 
 .app-card .tile-icon {
@@ -104,8 +102,21 @@ export default class AppCard extends Vue {
     justify-content: space-around;
 }
 
+.app-card .tile-content {
+    align-self: baseline;
+}
+
 .app-card .tile-content p {
     margin-bottom: 0.2rem;
+}
+
+.app-card .tile-title strong {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 
 .app-card .tile-subtitle {
