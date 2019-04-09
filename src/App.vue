@@ -3,7 +3,7 @@
         <header class="navbar">
             <section class="navbar-section">
                 <img src="./assets/logo.png" style="height: 40px;" class="mr-2" alt="Logo">
-                <a href="/" class="navbar-brand ml-2 text-bold mr-2">App Hub</a>
+                <a href="/" class="navbar-brand ml-2 text-bold mr-2 hide-sm">App Hub</a>
                 <div class="input-inline ml-2">
                     <div class="has-icon-left">
                         <input
@@ -17,12 +17,20 @@
                     </div>
                 </div>
             </section>
-            <section class="navbar-section" style="max-width: 200px;">
+            <section class="navbar-section">
                 <a
                     href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form"
                     target="_blank"
-                    class="ml-2 btn btn-link"
+                    class="ml-2 btn btn-link hide-xs"
                 >Submit App</a>
+
+                <a
+                    href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form"
+                    target="_blank"
+                    class="btn btn-link ml-2 show-xs"
+                >
+                    <i class="form-icon icon icon-upload" style="color: #fff; font-size: 1.3rem"></i>
+                </a>
             </section>
         </header>
 
@@ -125,6 +133,9 @@ export default class App extends Vue {
     box-shadow: none;
     color: #ffffff;
 }
+#app > .navbar .navbar-section {
+    flex: initial;
+}
 
 #app > .navbar .with-value ~ .form-icon {
     color: #ffffff;
@@ -144,5 +155,15 @@ export default class App extends Vue {
 #app .navbar-brand {
     font-size: 1.2rem;
     font-family: "Paytone One";
+}
+@media (min-width: 400px) {
+    .apps-section.container,
+    #app > .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #app .navbar-brand {
+        font-size: 1rem;
+    }
 }
 </style>
