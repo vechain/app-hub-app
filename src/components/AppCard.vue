@@ -138,5 +138,12 @@ a.app-card:hover {
     text-decoration: none;
     color: #111;
 }
+@media (max-width: 321px) {
+    .app-card {
+        padding: 20px 3px;
+        max-width: 316px;
+    }
+    
+}
 </style>
 
