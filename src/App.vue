@@ -2,7 +2,7 @@
     <div id="app">
         <header class="navbar">
             <section class="navbar-section">
-                <img src="./assets/logo.png" style="height: 40px;" class="mr-2" alt="Logo">
+                <img src="./assets/logo.png" style="height: 40px;" class="mr-2" alt="Logo" />
                 <a href="/" class="navbar-brand ml-2 text-bold mr-2 hide-sm">App Hub</a>
                 <div class="input-inline ml-2">
                     <div class="has-icon-left">
@@ -12,7 +12,7 @@
                             v-model.trim="keyword"
                             type="text"
                             placeholder="Search"
-                        >
+                        />
                         <i class="form-icon icon icon-search"></i>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                     :key="i"
                     class="column col-3 col-lg-4 col-md-6 col-sm-12"
                 >
-                    <AppCard style="margin: auto;" :app="item"/>
+                    <AppCard style="margin: auto;" :app="item" />
                 </div>
             </div>
             <div v-if="!appList.length" class="empty">
@@ -87,8 +87,10 @@ export default class App extends Vue {
 
     public get appList() {
         return this.apps.filter((item: any, index: number) => {
-            return item.name.toLowerCase().includes(this.keyword.toLowerCase())
-                || item.desc.toLowerCase().includes(this.keyword.toLowerCase());
+            return (
+                item.name.toLowerCase().includes(this.keyword.toLowerCase()) ||
+                item.desc.toLowerCase().includes(this.keyword.toLowerCase())
+            );
         });
     }
 }
@@ -96,7 +98,7 @@ export default class App extends Vue {
 
 <style>
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: auto;
@@ -154,7 +156,27 @@ export default class App extends Vue {
 }
 #app .navbar-brand {
     font-size: 1.2rem;
-    font-family: "Paytone One";
+    font-family: 'Paytone One';
+}
+@media (max-width: 321px) {
+    .columns {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+@media (min-width: 320px) {
+    .apps-section.container,
+    #app > .navbar {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
+@media (min-width: 374px) {
+    .apps-section.container,
+    #app > .navbar {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 @media (min-width: 400px) {
     .apps-section.container,
