@@ -16,6 +16,9 @@ module.exports = {
     workboxOptions: {
       skipWaiting: true,
       clientsClaim: true
-    }
+    },
+    name: 'VeChain Apps',
+    appleMobileWebAppCapable: 'yes',
+    themeColor: '#2f353b'
   }
 }
