@@ -13,6 +13,7 @@ module.exports = {
     ]
   },
   pwa: {
+    themeColor: '#eee',
     workboxOptions: {
       skipWaiting: true,
       clientsClaim: true
