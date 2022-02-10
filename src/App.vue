@@ -156,7 +156,7 @@ export default class App extends Vue {
   }
 
   public onTouch(event: Event) {
-    if (event.target!.className.includes('cover')) {
+    if ((event.target! as HTMLElement).className.includes('cover')) {
       event.stopPropagation();
       this.showSidebar = false;
     }
