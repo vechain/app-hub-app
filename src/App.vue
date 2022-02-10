@@ -5,7 +5,6 @@
         <div class="has-icon-left m-2 py-2 hide-xs">
           <input
             class="form-input"
-            :class="{ 'with-value': keyword !== '' }"
             v-model.trim="keyword"
             type="text"
             placeholder="Search"
@@ -29,7 +28,6 @@
                 <div class="has-icon-left">
                     <input
                         class="form-input"
-                        :class="{'with-value': keyword !== ''}"
                         v-model.trim="keyword"
                         type="text"
                         placeholder="Search"
@@ -192,10 +190,6 @@ export default class App extends Vue {
   margin-top: 1rem;
 }
 
-#app .with-value ~ .form-icon {
-  color: #ffffff;
-}
-
 @media (max-width: 480px) {
   .cover {
     width: 100vw;
@@ -245,7 +239,6 @@ export default class App extends Vue {
   border: none;
   border-color: none;
   box-shadow: none;
-  color: #ffffff;
 }
 #app > .navbar .navbar-section {
   flex: initial;
@@ -257,9 +250,14 @@ export default class App extends Vue {
   color: #9b9b9b;
 }
 
-#app > .navbar i {
-  color: #ffffff;
+#app .form-input:focus {
+  border-color: #9b9b9b;
+  box-shadow: 0 0 0 0.1rem rgb(54 194 209);
 }
+
+/* #app > .navbar i {
+  color: #ffffff;
+} */
 #app > .navbar a:visited,
 #app > .navbar a {
   color: #ffffff;
