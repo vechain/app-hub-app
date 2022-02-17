@@ -59,7 +59,7 @@
             Can not find any application match
             <strong>{{ keyword }}</strong>
           </p>
-          <ul style="width: 350px; margin: auto; text-align: left">
+          <ul style="margin: auto; text-align: left">
             <p class="empty-subtitle">Suggestion:</p>
             <li>Make sure that all words are spelled correctly.</li>
             <li>Try different keywods.</li>
@@ -190,7 +190,14 @@ export default class App extends Vue {
   margin-top: 1rem;
 }
 
+.empty ul {
+  width: 350px;
+}
+
 @media (max-width: 480px) {
+  .empty ul {
+    width: unset;
+  }
   .cover {
     width: 100vw;
     height: 100vh;
