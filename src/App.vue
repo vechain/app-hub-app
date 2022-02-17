@@ -39,7 +39,7 @@
     </header>
     <section class="apps-section">
       <div class="container gapless">
-        <h3>
+        <h3 style="font-weight:bold">
           {{ title }}
         </h3>
         <div v-if="appList.length" class="columns">
@@ -62,7 +62,7 @@
           <ul style="margin: auto; text-align: left">
             <p class="empty-subtitle">Suggestion:</p>
             <li>Make sure that all words are spelled correctly.</li>
-            <li>Try different keywods.</li>
+            <li>Try different keywords.</li>
           </ul>
         </div>
       </div>
@@ -86,7 +86,7 @@ interface DApp {
   img?: string;
 }
 
-type Categories = 'all' | 'defi' | 'games' | 'marketplaces' | 'utilities';
+type Categories = 'all' | 'defi' | 'collectable' | 'games' | 'marketplaces' | 'utilities';
 
 @Component({
   components: {
@@ -110,7 +110,8 @@ export default class App extends Vue {
 
   public menus = {
     all: 'All',
-    defi: 'DEX',
+    collectable: 'Collectable',
+    defi: 'Defi',
     games: 'Games',
     marketplaces: 'Market Places',
     utilities: 'Utilities',
@@ -123,9 +124,10 @@ export default class App extends Vue {
 
   public get title() {
     if (this.category === 'all') {
-      return this.keyword ? `Results of '${this.keyword}'.` : 'Discover';
+      return this.keyword ? `Results for "${this.keyword}"` : 'Discover';
     } else {
-      return `Result of ${this.menus[this.category!]}` + (this.keyword ? ` & search by '${this.keyword}' .` : '.');
+      return this.keyword
+      ? `Results for "${this.keyword}" in ${this.menus[this.category!]}` : `${this.menus[this.category!]}`;
     }
   }
 

@@ -29,7 +29,7 @@
     <a
       href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form"
       target="_blank"
-      style="margin-top: auto"
+      style="margin-top: auto;background:#fafafa"
       class="btn btn-link text-dark"
     >Submit App</a>
   </div>
@@ -58,7 +58,7 @@ export default class SideBar extends Vue {
   flex-direction: column;
 }
 .side-bar img {
-  height: 45px;
+  height: 32px;
 }
 
 .side-bar .col-oneline {
