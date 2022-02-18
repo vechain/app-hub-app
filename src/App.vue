@@ -149,10 +149,16 @@ export default class App extends Vue {
     const temp = window.location.hash && window.location.hash.substring(1) as Categories;
     if (this.categories.includes(temp as Categories)) {
         this.category = temp as Categories;
-      } else {
-        location.hash = 'all';
-        this.category = 'all';
-      }
+    } else {
+      location.hash = 'all';
+      this.category = 'all';
+    }
+
+    if (window.innerWidth < 480) {
+      this.showSidebar = false;
+    }
+
+
   }
 
   public onTouch(event: Event) {
