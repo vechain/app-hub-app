@@ -157,8 +157,6 @@ export default class App extends Vue {
     if (window.innerWidth < 480) {
       this.showSidebar = false;
     }
-
-
   }
 
   public onTouch(event: Event) {
