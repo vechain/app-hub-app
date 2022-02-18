@@ -86,7 +86,7 @@ interface DApp {
   img?: string;
 }
 
-type Categories = 'all' | 'defi' | 'collectable' | 'games' | 'marketplaces' | 'utilities';
+type Categories = 'all' | 'defi' | 'collectibles' | 'games' | 'marketplaces' | 'utilities';
 
 @Component({
   components: {
@@ -110,7 +110,7 @@ export default class App extends Vue {
 
   public menus = {
     all: 'All',
-    collectable: 'Collectable',
+    collectibles: 'Collectibles',
     defi: 'Defi',
     games: 'Games',
     marketplaces: 'Market Places',
