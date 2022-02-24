@@ -50,8 +50,7 @@ export default class SideBar extends Vue {
 
 <style>
 .side-bar {
-  width: 250px;
-  height: 100%;
+  height: 100vh;
   padding: 0.8rem;
   background-color: #eee;
   display: flex;

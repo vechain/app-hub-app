@@ -1,29 +1,15 @@
 <template>
-  <div id="app">
-    <div class="cover" :class="{'d-block': showSidebar, 'd-none': !showSidebar }" @click="onTouch">
-      <SideBar :menus="menus" :link="category">
-        <div class="has-icon-left m-2 py-2 hide-xs">
-          <input
-            class="form-input"
-            v-model.trim="keyword"
-            type="text"
-            placeholder="Search"
-          />
-          <i class="form-icon icon icon-search"></i>
-        </div>
-      </SideBar>
-    </div>
+  <div id="app" class="off-canvas off-canvas-sidebar-show">
     <header class="navbar">
         <section class="navbar-section">
             <a
                 href="javascript:;"
                 @click="showSidebar = true"
-                class="btn btn-link ml-2 show-xs"
+                class="btn btn-link ml-2 "
             >
                 <i class="form-icon icon icon-menu mr-2" style="font-size: 1.3rem"></i>
             </a>
             <img src="./assets/logo.png" style="height: 40px;" class="mr-2" alt="Logo" />
-            <a href="/" class="navbar-brand ml-2 text-bold mr-2 hide-sm">App Hub</a>
             <div class="input-inline ml-2">
                 <div class="has-icon-left">
                     <input
@@ -37,9 +23,23 @@
             </div>
         </section>
     </header>
-    <section class="apps-section">
+    <SideBar id="sidebar" class="off-canvas-sidebar" :class="{active: showSidebar}" :menus="menus" :link="category">
+      <div class="has-icon-left m-2 py-2 hide-lg">
+        <input
+          class="form-input"
+          v-model.trim="keyword"
+          type="text"
+          placeholder="Search"
+        />
+        <i class="form-icon icon icon-search"></i>
+      </div>
+    </SideBar>
+
+    <a class="off-canvas-overlay" href="javascript:;" @click="showSidebar = false"></a>
+
+    <div class="off-canvas-content">
       <div class="container gapless">
-        <h3 style="font-weight:bold">
+        <h3 style="font-weight:bold;margin-bottom: 0;margin-top: 0.5rem;">
           {{ title }}
         </h3>
         <div v-if="appList.length" class="columns">
@@ -66,7 +66,7 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -119,8 +119,7 @@ export default class App extends Vue {
 
   public category: Categories | null = null;
 
-  public showSidebar = !(window.innerWidth < 480);
-
+  public showSidebar = false;
 
   public get title() {
     if (this.category === 'all') {
@@ -154,14 +153,7 @@ export default class App extends Vue {
       this.category = 'all';
     }
 
-    if (window.innerWidth < 480) {
-      this.showSidebar = false;
-    }
-  }
-
-  public onTouch(event: Event) {
-    if ((event.target! as HTMLElement).className.includes('cover')) {
-      event.stopPropagation();
+    if (window.innerWidth < 960) {
       this.showSidebar = false;
     }
   }
@@ -180,6 +172,14 @@ export default class App extends Vue {
   -moz-osx-font-smoothing: grayscale;
   margin: auto;
   display: flex;
+  height: 100vh;
+  /* padding-top: 60px; */
+}
+
+#app .off-canvas-content {
+  height: 100%;
+  overflow: scroll;
+  padding: 1rem;
 }
 
 .apps-section {
@@ -192,7 +192,7 @@ export default class App extends Vue {
   padding-bottom: 1.2rem;
 }
 
-.apps-section .column {
+.container .column {
   margin-top: 1rem;
 }
 
@@ -200,36 +200,18 @@ export default class App extends Vue {
   width: 350px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 960px) {
   .empty ul {
     width: unset;
-  }
-  .cover {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    z-index: 111;
-    left: 0;
-    background-color: #2f353b66;
   }
   #app {
     display: block;
   }
   .apps-section {
-    width: 100%;
     height: initial;
   }
   #app > .navbar {
     display: flex !important;
-  }
-  .side-bar {
-    position: fixed;
-    top: 0;
-    width: 55%;
-    padding-top: 0.4rem;
-    z-index: 111;
-    box-shadow: 11px 0px 16px 12px rgb(98 98 99 / 20%)
   }
   .side-bar img {
     height: 40px;
@@ -237,17 +219,22 @@ export default class App extends Vue {
   .side-bar h3 {
     font-size: 24px;
   }
+  #app .off-canvas-content {
+    padding: 65px 0.2rem 1rem;
+  }
 }
 #app > .navbar {
   padding-left: 40px;
   padding-right: 40px;
   display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   background-color: #eee;
   height: 60px;
 }
 #app > .navbar .form-input:focus,
 #app > .navbar .form-input {
-  /* background-color: #565d63; */
   outline: none;
   border: none;
   border-color: none;
@@ -268,9 +255,6 @@ export default class App extends Vue {
   box-shadow: 0 0 0 0.1rem rgb(54 194 209);
 }
 
-/* #app > .navbar i {
-  color: #ffffff;
-} */
 #app > .navbar a:visited,
 #app > .navbar a {
   color: #ffffff;
@@ -279,35 +263,11 @@ export default class App extends Vue {
   font-size: 1.2rem;
   font-family: "Paytone One";
 }
-
-@media (max-width: 321px) {
-  .columns {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-@media (min-width: 320px) {
-  .apps-section.container,
-  #app > .navbar {
-    padding-left: 1px;
-    padding-right: 1px;
-  }
-}
-@media (min-width: 374px) {
+@media (max-width: 400px) {
   .apps-section.container,
   #app > .navbar {
     padding-left: 10px;
     padding-right: 10px;
-  }
-}
-@media (min-width: 400px) {
-  .apps-section.container,
-  #app > .navbar {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  #app .navbar-brand {
-    font-size: 1rem;
   }
 }
 </style>
