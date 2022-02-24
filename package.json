@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "npm run source && vue-cli-service serve",
-    "source": "npm i git+https://github.com/vechain/app-hub.git#gh-pages",
+    "source": "npm i git+https://github.com/AsbertMa/app-hub.git#gh-pages",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "app-hub": "git+https://github.com/vechain/app-hub.git#gh-pages",
+    "app-hub": "git+https://github.com/AsbertMa/app-hub.git#gh-pages",
     "imagemin-webpack-plugin": "2.4.2",
-    "register-service-worker": "^1.5.2",
+    "register-service-worker": "^1.7.1",
     "spectre.css": "^0.5.9",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.0",
-    "@vue/cli-plugin-pwa": "^3.1.0",
+    "@vue/cli-plugin-pwa": "^4.5.15",
     "@vue/cli-plugin-typescript": "^3.1.0",
     "@vue/cli-service": "^3.1.0",
     "lint-staged": "^8.1.0",

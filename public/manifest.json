@@ -1,0 +1,6 @@
+{
+    "name": "App Hub",
+    "short_name": "App Hub",
+    "start_url": "./index.html",
+    "display": "standalone"
+  }
