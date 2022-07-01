@@ -29,7 +29,7 @@
     <a
       href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form"
       target="_blank"
-      style="margin-top: auto;background:#fafafa"
+      style="margin-top: auto;background:#eee"
       class="btn btn-link text-dark"
     >Submit App</a>
   </div>
