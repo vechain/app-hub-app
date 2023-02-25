@@ -1,16 +1,8 @@
 <template>
   <div class="side-bar">
     <div class="container">
-      <div class="columns col-oneline">
-        <img src="../assets/logo.png" class="column col-auto" alt="Logo" />
-        <div class="column" style="display: flex">
-          <h3
-            style="display: flex; align-self: flex-end"
-            class="mb-0 text-bold"
-          >
-            App Hub
-          </h3>
-        </div>
+      <div class="columns col-oneline" id="app-logo-wrap">
+        <img src="../assets/vechain-app-hub.png" class="column col-auto" alt="Logo" id="app-logo" />        
       </div>
     </div>
     <slot />
