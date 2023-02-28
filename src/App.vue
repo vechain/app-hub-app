@@ -9,7 +9,7 @@
             >
                 <i class="form-icon icon icon-menu mr-2" style="font-size: 1.3rem"></i>
             </a>
-            <img src="./assets/logo.png" style="height: 40px;" class="mr-2" alt="Logo" />
+            <img src="./assets/vechain-app-hub.png" style="height: 40px;" class="mr-2" alt="Logo" />
             <div class="input-inline ml-2">
                 <div class="has-icon-left">
                     <input
@@ -167,13 +167,21 @@ export default class App extends Vue {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: auto;
   display: flex;
   height: 100vh;
   /* padding-top: 60px; */
+}
+
+#app-logo-wrap {
+  justify-content: center;
+}
+#app-logo {
+  width: 200px;
+  height: auto;
 }
 
 #app .off-canvas-content {
