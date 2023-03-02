@@ -235,8 +235,6 @@ export default class App extends Vue {
   }
 }
 #app > .navbar {
-  /* padding-left: 40px;
-  padding-right: 40px; */
   display: none;
   position: fixed;
   top: 0;
@@ -277,7 +275,6 @@ export default class App extends Vue {
 @media (max-width: 400px) {
   .apps-section.container,
   #app > .navbar {
-    padding-left: 10px;
     padding-right: 10px;
   }
 }
