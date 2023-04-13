@@ -152,9 +152,12 @@ export default class App extends Vue {
       location.hash = 'all';
       this.category = 'all';
     }
-
+    const listContainer = window.document.querySelector('#app .off-canvas-content');
     if (window.innerWidth < 960) {
       this.showSidebar = false;
+    }
+    if (listContainer) {
+        listContainer.scrollTop = 0;
     }
   }
 
@@ -232,8 +235,6 @@ export default class App extends Vue {
   }
 }
 #app > .navbar {
-  padding-left: 40px;
-  padding-right: 40px;
   display: none;
   position: fixed;
   top: 0;
@@ -274,7 +275,6 @@ export default class App extends Vue {
 @media (max-width: 400px) {
   .apps-section.container,
   #app > .navbar {
-    padding-left: 10px;
     padding-right: 10px;
   }
 }
