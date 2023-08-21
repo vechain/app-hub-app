@@ -11,3 +11,7 @@ npm install     #Install dependencies
 npm run serve   #Compiles and hot-reloads for development
 npm run build   #Compiles and minifies for production
 ```
+
+## Deployment
+
+This repo only contains the source code of the website. The deployment is done by [vechain/app-hub](https://github.com/vechain/app-hub/blob/master/.github/workflows/build.yml).
