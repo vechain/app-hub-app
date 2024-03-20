@@ -1,5 +1,5 @@
 <template>
-    <a class="app-card tile" target="_blank" :href="app.href">
+    <a class="app-card tile" :data-type="app.category" target="_blank" :href="url">
         <div class="tile-icon" :style="backGStyle" :class="{'tile-icon-border': !loaded}">
             <div v-show="!loaded">
                 <span>{{indexStr}}</span>
@@ -13,8 +13,8 @@
             >
         </div>
         <div class="tile-content">
-            <p class="tile-title bold">
-                <strong :title="app.name">{{app.name}}</strong>
+            <p class="tile-title">
+                {{app.name}}
             </p>
             <p class="tile-subtitle">{{app.desc}}</p>
         </div>
@@ -47,6 +47,10 @@ export default class AppCard extends Vue {
         };
     }
 
+    get url() {
+        return this.app.href;
+    }
+
     get color(): string {
         const colors = [
             '#41ab5d',
@@ -72,13 +76,22 @@ export default class AppCard extends Vue {
 </script>
 <style scoped>
 .app-card {
-    border-radius: 3px;
-    border: 1px solid #eee;
+    border-radius: 5px;
+    border: 1px solid #e2e8f0;
     padding: 20px;
     box-sizing: border-box;
     max-width: 330px;
     height: 134px;
-    align-items: center;
+    align-items: top;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+.app-card:hover{
+    border-color: #aaa;
+}
+
+.app-card[data-type="collectibles"]{
+    border-style: dashed;
 }
 
 .app-card .tile-icon {
@@ -88,6 +101,8 @@ export default class AppCard extends Vue {
     background-color: white;
     display: flex;
     justify-content: center;
+    border-radius: 5px;
+    overflow: hidden;
 }
 .tile-icon-border {
     border: 2px solid #eee;
@@ -110,18 +125,18 @@ export default class AppCard extends Vue {
     margin-bottom: 0.2rem;
 }
 
-.app-card .tile-title strong {
+.app-card .tile-title {
     -webkit-box-orient: vertical;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    font-weight: bold;;
 }
 
 .app-card .tile-subtitle {
-    font-size: 0.7rem;
-    line-height: 1rem;
+    font-size: 0.9em;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     -webkit-line-clamp: 3;
