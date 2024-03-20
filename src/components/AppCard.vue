@@ -1,4 +1,28 @@
 <template>
+    <div class="card" :data-type="app.category">
+        <div class="card-image">
+            <a target="_blank" :href="url">
+            <img
+                width="100%"
+                :src="app.img"
+            >
+            </a>
+        </div>
+        <div class="card-header">
+            <div class="card-title">
+                <a target="_blank" :href="url" class="text-dark text-bold text-large">
+                    {{ app.name }}
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <p>
+                {{  app.desc }}
+            </p>
+            <small v-for="tag in app.tags" class="chip">{{ tag }}</small>
+        </div>
+    </div>
+    <!-- 
     <a class="app-card tile" :data-type="app.category" target="_blank" :href="url">
         <div class="tile-icon" :style="backGStyle" :class="{'tile-icon-border': !loaded}">
             <div v-show="!loaded">
@@ -19,6 +43,7 @@
             <p class="tile-subtitle">{{app.desc}}</p>
         </div>
     </a>
+    -->
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
@@ -75,6 +100,45 @@ export default class AppCard extends Vue {
 }
 </script>
 <style scoped>
+.card{
+    height: 100%;
+    transition: all 0.3s;
+    border-radius: 5px;
+    border-color: #aaa;
+}
+.card[data-type="collectibles"]{
+    border-color: white;
+}
+.card-image a{
+    overflow: hidden;
+    display: block;
+}
+.card-image img{
+    transition: all 0.3s;
+    transform: scale(0.85);
+}
+.card:hover{
+    border-color: #333;
+}
+.card:hover .card-image img{
+    transform: scale(1);
+}
+.card-title a:hover{
+    text-decoration: none;
+}
+
+@media screen and (max-width:600px){
+    .card-header, .card-body{
+        padding: 0 0.4em;
+    }
+    .card-image{
+        max-width: 80px;
+        margin: 0 auto;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+}
+/*
 .app-card {
     border-radius: 5px;
     border: 1px solid #e2e8f0;
@@ -160,5 +224,6 @@ a.app-card:hover {
     }
     
 }
+*/
 </style>
 

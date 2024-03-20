@@ -7,7 +7,8 @@
     </div>
     <slot />
     <ul class="nav custom-nav">
-      <h5 class="my-2">Apps</h5>
+      <h3>Filter</h3>
+      <h5 class="my-2">Category</h5>
       <li
         :class="{ active: link === key }"
         class="nav-item"
