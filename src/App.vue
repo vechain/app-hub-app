@@ -9,7 +9,7 @@
             >
                 <i class="form-icon icon icon-menu mr-2" style="font-size: 1.3rem"></i>
             </a>
-            <img src="./assets/vechain-app-hub.png" style="height: 40px;" class="mr-2" alt="Logo" />
+            <img src="./assets/vechain-app-hub.png" class="mr-2" alt="Logo" id="logo-navbar" />
             <div class="input-inline ml-2">
                 <div class="has-icon-left">
                     <input
@@ -24,7 +24,7 @@
         </section>
     </header>
     <SideBar id="sidebar" class="off-canvas-sidebar" :class="{active: showSidebar}" :menus="menus" :link="category">
-      <div class="has-icon-left m-2 py-2 hide-lg">
+      <div class="has-icon-left my-2 hide-lg">
         <input
           class="form-input"
           v-model.trim="keyword"
@@ -46,7 +46,7 @@
           <div
             v-for="(item, i) in appList"
             :key="i"
-            class="column col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-2 col-xxxl-1"
+            class="column col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 col-xxxl-1"
           >
             <AppCard style="margin: auto" :app="item" />
           </div>
@@ -65,6 +65,23 @@
             <li>Try different keywords.</li>
           </ul>
         </div>
+        <footer>
+          <div class="developer-cta">
+            <small>
+              <strong>Are you a DApp builder?</strong>
+              <br />
+              <a href="https://docs.vechain.org/developer-resources/getting-started" target="_blank">
+                Read the docs
+              </a> 
+              and
+              <a href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form" target="_blank">
+                submit your DApp
+              </a>
+            </small>
+          </div>
+          <div class="divider"></div>
+          <small>All Rights Reserved. © 2024 Vechain Foundation San Marino S.r.l.</small>
+        </footer>
       </div>
     </div>
   </div>
@@ -179,18 +196,18 @@ export default class App extends Vue {
   /* padding-top: 60px; */
 }
 
-#app-logo-wrap {
-  justify-content: center;
-}
-#app-logo {
-  width: 200px;
-  height: auto;
-}
-
 #app .off-canvas-content {
   height: 100%;
   overflow: scroll;
   padding: 1rem;
+}
+
+#logo-navbar{
+  height: 26px;
+}
+
+footer{
+  text-align: center;
 }
 
 .apps-section {
@@ -224,9 +241,6 @@ export default class App extends Vue {
   #app > .navbar {
     display: flex !important;
   }
-  .side-bar img {
-    height: 40px;
-  }
   .side-bar h3 {
     font-size: 24px;
   }
@@ -241,6 +255,7 @@ export default class App extends Vue {
   width: 100vw;
   background-color: #eee;
   height: 60px;
+  z-index: 10;
 }
 #app > .navbar .form-input:focus,
 #app > .navbar .form-input {
@@ -272,6 +287,12 @@ export default class App extends Vue {
   font-size: 1.2rem;
   font-family: "Paytone One";
 }
+
+.developer-cta{
+  margin-top: 100px;
+  padding: 16px0px;
+}
+
 @media (max-width: 400px) {
   .apps-section.container,
   #app > .navbar {
