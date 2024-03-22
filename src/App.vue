@@ -9,7 +9,7 @@
             >
                 <i class="form-icon icon icon-menu mr-2" style="font-size: 1.3rem"></i>
             </a>
-            <img src="./assets/vechain-app-hub.png" class="mr-2" alt="Logo" id="logo-navbar" />
+            <img src="./assets/vechain-app-hub.png" alt="Logo" class="logo--navbar mr-2" />
             <div class="input-inline ml-2">
                 <div class="has-icon-left">
                     <input
@@ -80,7 +80,7 @@
             </small>
           </div>
           <div class="divider"></div>
-          <small>All Rights Reserved. © 2024 Vechain Foundation San Marino S.r.l.</small>
+          <small>All Rights Reserved. © {{ year }} Vechain Foundation San Marino S.r.l.</small>
         </footer>
       </div>
     </div>
@@ -147,6 +147,10 @@ export default class App extends Vue {
     }
   }
 
+  public get year() {
+    return new Date().getFullYear();
+  }
+
   public get appList() {
     return this.apps.filter((item: any, index: number) => {
       const keyword = this.keyword.toLowerCase();
@@ -202,7 +206,7 @@ export default class App extends Vue {
   padding: 1rem;
 }
 
-#logo-navbar{
+.logo--navbar{
   height: 26px;
 }
 

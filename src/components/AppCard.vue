@@ -1,24 +1,22 @@
 <template>
     <div class="card" :data-type="app.category">
-        <div class="card-image">
-            <a target="_blank" :href="url">
-                <img
-                    width="100%"
-                    :src="app.img"
-                >
-            </a>
-        </div>
-        <div class="card-header">
-            <div class="card-title">
-                <a target="_blank" :href="url" class="text-dark text-bold text-large">
-                    {{ app.name }}
+        <div class="card-body">
+            <div>
+                <a target="_blank" :href="url">
+                    <img
+                        width="40"
+                        :src="app.img"
+                    >
                 </a>
             </div>
-        </div>
-        <div class="card-body">
-            <p>
-                {{  app.desc }}
-            </p>
+            <div>
+                <a target="_blank" :href="url" class="text-dark text-bold">
+                    {{ app.name }}
+                </a>
+                <p>
+                    {{  app.desc }}
+                </p>
+            </div>
         </div>
         <div class="card-footer hide-sm">
             <small v-for="tag in app.tags" class="chip">{{ tag }}</small>
@@ -84,38 +82,39 @@ export default class AppCard extends Vue {
     height: 100%;
     transition: all 0.3s;
     border-radius: 5px;
-    border-color: #aaa;
+    border-color: #e2e8f0;
 }
 .card[data-type="collectibles"]{
     border-style: dashed;
 }
-.card-image a{
-    overflow: hidden;
-    display: block;
-}
-.card-image img{
-    transition: all 0.3s;
-    transform: scale(0.85);
-}
 .card:hover{
     border-color: #333;
 }
-.card:hover .card-image img{
-    transform: scale(1);
+.card-body{
+    padding: 20px 20px 0 20px;
 }
-.card-title a:hover{
+
+.card-body img{
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+    transition: all 0.3s;
+}
+.card-body a:hover{
     text-decoration: none;
+}
+.card-body p{
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 0;
+}
+.card:hover img{
+    transform: scale(1.4);
 }
 
 @media screen and (max-width:600px){
-    .card-header, .card-body{
-        padding: 0 0.4em;
-    }
-    .card-image{
-        max-width: 80px;
-        margin: 0 auto;
-        border-radius: 5px;
-        margin-top: 10px;
+    .card-body{
+        padding: 10px 10px 10px 10px;
     }
 }
 </style>

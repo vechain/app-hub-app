@@ -1,6 +1,6 @@
 <template>
   <div class="side-bar">
-    <img src="../assets/vechain-app-hub.png" alt="Logo" id="app-logo" class="hide-sm" />        
+    <img src="../assets/vechain-app-hub.png" alt="Logo" class="logo--side hide-sm" />        
     <slot />
 
     <ul class="nav custom-nav">
@@ -39,7 +39,7 @@ export default class SideBar extends Vue {
   box-sizing: border-box;
 }
 
-#app-logo{
+.logo--side{
   display: inline-block;
   width: 200px;
   margin-bottom: 8px;
