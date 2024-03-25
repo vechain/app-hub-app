@@ -108,9 +108,6 @@ export default class AppCard extends Vue {
     color: #718096;
     margin-bottom: 0;
 }
-.card:hover img{
-    transform: scale(1.4);
-}
 
 @media screen and (max-width:600px){
     .card-body{
