@@ -70,11 +70,11 @@
             <small>
               <strong>Are you a DApp builder?</strong>
               <br />
-              <a href="https://docs.vechain.org/developer-resources/getting-started" target="_blank">
+              <a href="https://docs.vechain.org/developer-resources/getting-started" target="_blank" rel="noopener noreferrer">
                 Read the docs
               </a> 
               and
-              <a href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form" target="_blank">
+              <a href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form" target="_blank" rel="noopener noreferrer">
                 submit your DApp
               </a>
             </small>
