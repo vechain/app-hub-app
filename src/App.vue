@@ -294,7 +294,7 @@ footer{
 
 .developer-cta{
   margin-top: 100px;
-  padding: 16px0px;
+  padding: 16px 0px;
 }
 
 @media (max-width: 400px) {
