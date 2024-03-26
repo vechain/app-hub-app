@@ -9,7 +9,7 @@
             >
                 <i class="form-icon icon icon-menu mr-2" style="font-size: 1.3rem"></i>
             </a>
-            <img src="./assets/vechain-app-hub.png" style="height: 40px;" class="mr-2" alt="Logo" />
+            <img src="./assets/vechain-app-hub.png" alt="Logo" class="logo--navbar mr-2" />
             <div class="input-inline ml-2">
                 <div class="has-icon-left">
                     <input
@@ -24,7 +24,7 @@
         </section>
     </header>
     <SideBar id="sidebar" class="off-canvas-sidebar" :class="{active: showSidebar}" :menus="menus" :link="category">
-      <div class="has-icon-left m-2 py-2 hide-lg">
+      <div class="has-icon-left my-2 hide-lg">
         <input
           class="form-input"
           v-model.trim="keyword"
@@ -46,7 +46,7 @@
           <div
             v-for="(item, i) in appList"
             :key="i"
-            class="column col-3 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+            class="column col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 col-xxxl-1"
           >
             <AppCard style="margin: auto" :app="item" />
           </div>
@@ -65,6 +65,23 @@
             <li>Try different keywords.</li>
           </ul>
         </div>
+        <footer>
+          <div class="developer-cta">
+            <small>
+              <strong>Are you a DApp builder?</strong>
+              <br />
+              <a href="https://docs.vechain.org/developer-resources/getting-started" target="_blank" rel="noopener noreferrer">
+                Read the docs
+              </a> 
+              and
+              <a href="https://github.com/vechain/app-hub#vechain-app-hub---submit-form" target="_blank" rel="noopener noreferrer">
+                submit your DApp
+              </a>
+            </small>
+          </div>
+          <div class="divider"></div>
+          <small>All Rights Reserved. © {{ year }} Vechain Foundation San Marino S.r.l.</small>
+        </footer>
       </div>
     </div>
   </div>
@@ -130,6 +147,10 @@ export default class App extends Vue {
     }
   }
 
+  public get year() {
+    return new Date().getFullYear();
+  }
+
   public get appList() {
     return this.apps.filter((item: any, index: number) => {
       const keyword = this.keyword.toLowerCase();
@@ -179,18 +200,18 @@ export default class App extends Vue {
   /* padding-top: 60px; */
 }
 
-#app-logo-wrap {
-  justify-content: center;
-}
-#app-logo {
-  width: 200px;
-  height: auto;
-}
-
 #app .off-canvas-content {
   height: 100%;
   overflow: scroll;
   padding: 1rem;
+}
+
+.logo--navbar{
+  height: 26px;
+}
+
+footer{
+  text-align: center;
 }
 
 .apps-section {
@@ -224,9 +245,6 @@ export default class App extends Vue {
   #app > .navbar {
     display: flex !important;
   }
-  .side-bar img {
-    height: 40px;
-  }
   .side-bar h3 {
     font-size: 24px;
   }
@@ -241,6 +259,7 @@ export default class App extends Vue {
   width: 100vw;
   background-color: #eee;
   height: 60px;
+  z-index: 10;
 }
 #app > .navbar .form-input:focus,
 #app > .navbar .form-input {
@@ -272,10 +291,144 @@ export default class App extends Vue {
   font-size: 1.2rem;
   font-family: "Paytone One";
 }
+
+.developer-cta{
+  margin-top: 100px;
+  padding: 16px 0px;
+}
+
 @media (max-width: 400px) {
   .apps-section.container,
   #app > .navbar {
     padding-right: 10px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 2480px) {
+  .col-xxl-12,
+  .col-xxl-11,
+  .col-xxl-10,
+  .col-xxl-9,
+  .col-xxl-8,
+  .col-xxl-7,
+  .col-xxl-6,
+  .col-xxl-5,
+  .col-xxl-4,
+  .col-xxl-3,
+  .col-xxl-2,
+  .col-xxl-1,
+  .col-xxl-auto {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-xxl-12 {
+    width: 100%;
+  }
+  .col-xxl-11 {
+    width: 91.66666667%;
+  }
+  .col-xxl-10 {
+    width: 83.33333333%;
+  }
+  .col-xxl-9 {
+    width: 75%;
+  }
+  .col-xxl-8 {
+    width: 66.66666667%;
+  }
+  .col-xxl-7 {
+    width: 58.33333333%;
+  }
+  .col-xxl-6 {
+    width: 50%;
+  }
+  .col-xxl-5 {
+    width: 41.66666667%;
+  }
+  .col-xxl-4 {
+    width: 33.33333333%;
+  }
+  .col-xxl-3 {
+    width: 25%;
+  }
+  .col-xxl-2 {
+    width: 16.66666667%;
+  }
+  .col-xxl-1 {
+    width: 8.33333333%;
+  }
+  .col-xxl-auto {
+    width: auto;
+  }
+  .hide-xxl {
+    display: none !important;
+  }
+  .show-xxl {
+    display: block !important;
+  }
+}
+
+@media (min-width: 2481px) and (max-width: 4000px) {
+  .col-xxxl-12,
+  .col-xxxl-11,
+  .col-xxxl-10,
+  .col-xxxl-9,
+  .col-xxxl-8,
+  .col-xxxl-7,
+  .col-xxxl-6,
+  .col-xxxl-5,
+  .col-xxxl-4,
+  .col-xxxl-3,
+  .col-xxxl-2,
+  .col-xxxl-1,
+  .col-xxl-auto {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-xxxl-12 {
+    width: 100%;
+  }
+  .col-xxxl-11 {
+    width: 91.66666667%;
+  }
+  .col-xxxl-10 {
+    width: 83.33333333%;
+  }
+  .col-xxxl-9 {
+    width: 75%;
+  }
+  .col-xxxl-8 {
+    width: 66.66666667%;
+  }
+  .col-xxxl-7 {
+    width: 58.33333333%;
+  }
+  .col-xxxl-6 {
+    width: 50%;
+  }
+  .col-xxxl-5 {
+    width: 41.66666667%;
+  }
+  .col-xxxl-4 {
+    width: 33.33333333%;
+  }
+  .col-xxxl-3 {
+    width: 25%;
+  }
+  .col-xxxl-2 {
+    width: 16.66666667%;
+  }
+  .col-xxxl-1 {
+    width: 8.33333333%;
+  }
+  .col-xxxl-auto {
+    width: auto;
+  }
+  .hide-xxxl {
+    display: none !important;
+  }
+  .show-xxxl {
+    display: block !important;
   }
 }
 </style>

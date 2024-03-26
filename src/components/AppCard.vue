@@ -1,24 +1,26 @@
 <template>
-    <a class="app-card tile" target="_blank" :href="app.href">
-        <div class="tile-icon" :style="backGStyle" :class="{'tile-icon-border': !loaded}">
-            <div v-show="!loaded">
-                <span>{{indexStr}}</span>
+    <div class="card" :data-type="app.category">
+        <div class="card-body">
+            <div>
+                <a target="_blank" :href="url">
+                    <img
+                        :src="app.img"
+                    >
+                </a>
             </div>
-            <img
-                v-show="loaded"
-                @load="onUpdateLoaded(true)"
-                @error="onUpdateLoaded(false)"
-                width="100%"
-                :src="app.img"
-            >
+            <div>
+                <a target="_blank" :href="url" class="text-dark text-bold">
+                    {{ app.name }}
+                </a>
+                <p>
+                    {{  app.desc }}
+                </p>
+            </div>
         </div>
-        <div class="tile-content">
-            <p class="tile-title bold">
-                <strong :title="app.name">{{app.name}}</strong>
-            </p>
-            <p class="tile-subtitle">{{app.desc}}</p>
+        <div class="card-footer hide-sm">
+            <small v-for="tag in app.tags" class="chip">{{ tag }}</small>
         </div>
-    </a>
+    </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
@@ -47,6 +49,10 @@ export default class AppCard extends Vue {
         };
     }
 
+    get url() {
+        return this.app.href;
+    }
+
     get color(): string {
         const colors = [
             '#41ab5d',
@@ -71,79 +77,48 @@ export default class AppCard extends Vue {
 }
 </script>
 <style scoped>
-.app-card {
-    border-radius: 3px;
-    border: 1px solid #eee;
-    padding: 20px;
-    box-sizing: border-box;
-    max-width: 330px;
-    height: 134px;
-    align-items: center;
-}
-
-.app-card .tile-icon {
-    height: 60px;
-    width: 60px;
-    margin-right: 0.5rem;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-}
-.tile-icon-border {
-    border: 2px solid #eee;
+.card{
+    height: 100%;
+    transition: all 0.3s;
     border-radius: 5px;
+    border-color: #e2e8f0;
 }
-.app-card .tile-icon div {
-    display: flex;
-    color: #eee;
-    font-size: 2.5rem;
-    font-weight: bold;
-    flex-direction: column;
-    justify-content: space-around;
+.card[data-type="collectibles"] .card-footer{
+    display: none;
 }
-
-.app-card .tile-content {
-    align-self: baseline;
+.card-footer{
+    padding-top: 0;
 }
-
-.app-card .tile-content p {
-    margin-bottom: 0.2rem;
+/* .card[data-type="collectibles"] .card-body img{
+    width: 100%;
+} */
+.card:hover{
+    border-color: #333;
 }
-
-.app-card .tile-title strong {
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
+.card-body{
+    padding: 20px;
 }
 
-.app-card .tile-subtitle {
-    font-size: 0.7rem;
-    line-height: 1rem;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
+.card-body img{
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+    transition: all 0.3s;
+    width: 50px;
 }
-a.app-card:focus {
-    box-shadow: none;
-}
-a.app-card,
-a:visited.app-card,
-a.app-card:hover {
+.card-body a:hover{
     text-decoration: none;
-    color: #111;
 }
-@media (max-width: 321px) {
-    .app-card {
-        padding: 20px 3px;
-        max-width: 316px;
+.card-body p{
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width:600px){
+    .card-body{
+        padding: 10px 10px 10px 10px;
     }
-    
 }
 </style>
 
