@@ -4,7 +4,6 @@
             <div>
                 <a target="_blank" :href="url">
                     <img
-                        width="40"
                         :src="app.img"
                     >
                 </a>
@@ -84,14 +83,20 @@ export default class AppCard extends Vue {
     border-radius: 5px;
     border-color: #e2e8f0;
 }
-.card[data-type="collectibles"]{
-    border-style: dashed;
+.card[data-type="collectibles"] .card-footer{
+    display: none;
 }
+.card-footer{
+    padding-top: 0;
+}
+/* .card[data-type="collectibles"] .card-body img{
+    width: 100%;
+} */
 .card:hover{
     border-color: #333;
 }
 .card-body{
-    padding: 20px 20px 0 20px;
+    padding: 20px;
 }
 
 .card-body img{
@@ -99,6 +104,7 @@ export default class AppCard extends Vue {
     display: inline-block;
     margin-bottom: 6px;
     transition: all 0.3s;
+    width: 50px;
 }
 .card-body a:hover{
     text-decoration: none;
