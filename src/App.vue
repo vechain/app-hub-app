@@ -46,7 +46,7 @@
           <div
             v-for="(item, i) in appList"
             :key="i"
-            class="column col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 col-xxxl-1"
+            class="column col-sm-12 col-md-6 col-lg-4 col-xl-3 col-2"
           >
             <AppCard style="margin: auto" :app="item" />
           </div>
